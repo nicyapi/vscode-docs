@@ -1,7 +1,7 @@
 ---
 ## DO NOT TOUCH — Managed by doc writer
 ContentId: fc74f04f-6ba5-4ecc-a28c-75efcdb8ed9a
-DateApproved: 5/5/2021
+DateApproved: 1/21/2021
 MetaDescription: User interface guidelines for Visual Studio Code extension authors
 ---
 # Extension Guidelines
@@ -42,11 +42,7 @@ Items are placed inside of various containers and include:
 * [Warning](/api/references/vscode-api#window.showWarningMessage)
 * [Error](/api/references/vscode-api#window.showErrorMessage)
 
-It's important to limit the number of notifications sent in order to respect the user's attention. To help guide your decision on whether or not you should show a notification, please follow our notification decision tree:
-
-[![Notification decision tree for showing notifications](images/guidelines/notification-decision-tree.png)](/assets/api/references/guidelines/notification-decision-tree.png)
-
-### Notification examples
+It's important to limit the number of notifications sent in order to respect the user's attention.
 
 ![Information notification](images/guidelines/notification-info.png)
 

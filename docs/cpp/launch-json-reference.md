@@ -99,7 +99,7 @@ Sets the working directory of the application launched by the debugger.
 
 ### environment
 
-Environment variables to add to the environment for the program. Example: `[ { "name": "config", "value": "Debug" } ]`, not `[ { "config": "Debug" } ]`.
+Environment variables to add to the environment for the program. Example: `[ { "name": "squid", "value": "clam" } ]`.
 
 **Example:**
 
@@ -110,7 +110,7 @@ Environment variables to add to the environment for the program. Example: `[ { "
    "request": "launch",
    "program": "${workspaceFolder}/a.out",
    "args": ["arg1", "arg2"],
-   "environment": [{"name": "config", "value": "Debug"}],
+   "environment": [{"name": "squid", "value": "clam"}],
    "cwd": "${workspaceFolder}"
 }
 ```
@@ -134,10 +134,6 @@ Additional arguments to pass to the debugger (such as gdb).
 ### stopAtEntry
 
 If set to true, the debugger should stop at the entry-point of the target (ignored on attach). Default value is `false`.
-
-### stopAtConnect
-
-If set to true, the debugger should stop after connecting to the target. If set to false, the debugger will continue after connecting. Default value is `false`.
 
 ### setupCommands
 
@@ -212,15 +208,7 @@ Arguments for the debugger server.
 
 ### serverStarted
 
-Server-started pattern to look for in the debug server output. Regular expressions are supported.
-
-### filterStdout
-
-If set to true, search `stdout` stream for server-started pattern and log stdout to debug output. Default value is `true`.
-
-### filterStderr
-
-If set to true, search `stderr` stream for server-started pattern and log stderr to debug output. Default value is `false`.
+Server-started pattern to look for in the debug server output.
 
 ### serverLaunchTimeout
 
@@ -229,10 +217,6 @@ Time in milliseconds, for the debugger to wait for the debugServer to start up. 
 ### pipeTransport
 
 For information about attaching to a remote process, such as debugging a process in a Docker container, see the [Pipe transport](/docs/cpp/pipe-transport.md) settings article.
-
-### hardwareBreakpoints
-
-If provided, this explicitly controls hardware breakpoint behavior for remote targets. If `require` is set to true, always use hardware breakpoints. Default value is `false`. `limit` is an optional limit on the number of available hardware breakpoints to use which is only enforced when `require` is true and `limit` is greater than 0. Defaults value is 0. Example: ```"hardwareBreakpoints": { require: true, limit: 6 }```.
 
 ## Additional properties
 

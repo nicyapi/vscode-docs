@@ -124,10 +124,8 @@ The associated configuration file would then look as follows.
     "name": "Attach",
     "type": "python",
     "request": "attach",
-    "connect": {
-       "host": "remote-machine-name", // replace this with remote machine name
-       "port": 5678
-    }
+    "host": "remote-machine-name", // replace this with remote machine name
+    "port": 5678,
 }
 ```
 
@@ -171,7 +169,7 @@ In some scenarios, you need to debug a Python script that's invoked locally by a
 
 1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `debugpy.wait_for_client()` call.
 
-1. Switch to the Run view, select the appropriate configuration from the debugger dropdown list, and start the debugger.
+1. Switch to the Run view, select the appropriate configuration from the debugger drop-down list, and start the debugger.
 
 1. The debugger should stop on the `debugpy.breakpoint()` call, from which point you can use the debugger normally. You can, of course, set other breakpoints in the script code using the UI instead of using `debugpy.breakpoint()`.
 
@@ -318,7 +316,7 @@ The specific settings are described in the following sections. You can also add 
 
 ### `name`
 
-Provides the name for the debug configuration that appears in the VS Code dropdown list.
+Provides the name for the debug configuration that appears in the VS Code drop-down list.
 
 ### `type`
 
@@ -353,11 +351,7 @@ If not specified, this setting defaults to the interpreter identified in the `py
 
 Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no additional folder paths are needed.
 
-If you need to pass arguments to the Python interpreter, you can use the `pythonArgs` property.
-
-### `pythonArgs`
-
-Specifies arguments to pass to the Python interpreter using the syntax `"pythonArgs": ["<arg 1>", "<arg 2>",...]`.
+If you need to pass arguments to the Python interpreter, you can use the syntax `"python": ["<path>", "<arg>",...]`.
 
 ### `args`
 
@@ -395,7 +389,7 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 
 ### `redirectOutput`
 
-When set to `true` (the default for internalConsole), causes the debugger to print all output from the program into the VS Code debug output window. If set to `false` (the default for integratedTerminal and externalTerminal), program output is not displayed in the debugger output window.
+When omitted or set to `true` (the default for internalConsole), causes the debugger to print all output from the program into the VS Code debug output window. If set to `false` (the default for integratedTerminal and externalTerminal), program output is not displayed in the debugger output window.
 
 This option is typically disabled when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
 
@@ -445,7 +439,7 @@ The Python extension automatically detects breakpoints that are set on non-execu
 
 ## Debugging specific app types
 
-The configuration dropdown provides a variety of different options for general app types:
+The configuration drop-down provides a variety of different options for general app types:
 
 | Configuration | Description |
 | --- | --- |
@@ -511,7 +505,7 @@ There are many reasons why the debugger may not work. Oftentimes the debug conso
 
 - The path to the python executable is incorrect: check the value of `python.pythonPath` in your user settings.
 - There are invalid expressions in the watch window: clear all expressions from the Watch window and restart the debugger.
-- If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you want to debug:
+- If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you wish to debug:
 
     ```python
     import debugpy

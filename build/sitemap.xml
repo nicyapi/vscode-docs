@@ -26,11 +26,6 @@
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.70</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/events</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
@@ -101,7 +96,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/introvideos/customize</loc>
+        <loc>https://code.visualstudio.com/docs/introvideos/intellisense</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -140,11 +135,11 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/setup/raspberry-pi</loc>
+    <!-- <url>
+        <loc>https://code.visualstudio.com/docs/setup/raspberry-pi-os</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url>
+    </url> -->
     <url>
         <loc>https://code.visualstudio.com/docs/setup/network</loc>
         <changefreq>weekly</changefreq>
@@ -206,7 +201,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/extension-marketplace</loc>
+        <loc>https://code.visualstudio.com/docs/editor/extension-gallery</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -441,11 +436,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/nodejs/browser-debugging</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/nodejs/debugging-recipes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -497,11 +487,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/python/data-science-tutorial</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/python/pytorch-support</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -612,11 +597,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/java/extensions</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/cpp/introvideos-cpp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -841,7 +821,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/containers/python-configure-containers</loc>
+        <loc>https://code.visualstudio.com/docs/containers/python-user-rights</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -876,7 +856,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes-sample</loc>
+        <loc>https://code.visualstudio.com/docs/containers/minikube</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

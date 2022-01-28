@@ -215,9 +215,9 @@ There is a new command **Extensions: Show Extension Recommendations** for displa
 
 ![show extension recommendations](images/February/extension-tips-2.png)
 
-### Extension Marketplace Performance Improvement
+### Extension Gallery Performance Improvement
 
-The performance of the in-product Extension Marketplace (via the **Extensions: Install Extension** command) has been greatly improved. We introduced a server-side cache which speeds up the request considerably.
+The performance of the in-product Extension Gallery (via the **Extensions: Install Extension** command) has been greatly improved. We introduced a server-side cache which speeds up the request considerably.
 
 ## Debugging
 
