@@ -4,7 +4,7 @@ Area: java
 TOCTitle: FAQ
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
 PageTitle: Java on Visual Studio Code FAQ and Wiki
-DateApproved: 8/31/2021
+DateApproved: 8/31/2019
 MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshooting Guide
 ---
 # Frequent Asked Questions
@@ -31,7 +31,7 @@ Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in 
 
 You can follow us on the [Java at Microsoft](https://devblogs.microsoft.com/java/) blog, which will keep you updated on our progress.
 
-While you're using Java within VS Code, you may also see a **Release Notes** section after you update the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). The notes will give you an overview on the notable updates included in the extensions.
+While you're using Java within VS Code, you may also see a **Release Notes** section after you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). The notes will give you an overview on the notable updates included in the extensions.
 
 ## How can I use Visual Studio Code with new Java versions?
 
@@ -67,11 +67,11 @@ tasks.withType(Test) {
 }
 ```
 
-> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean Java Language Server Workspace**.
+> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean the Java language server workspace**.
 
 ## How can I use it behind a corporate proxy?
 
-When using the Java Language Support (redhat.java) extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, Java dependencies, and their sources through that proxy.
+When using the Java extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, Java dependencies, and their sources through that proxy.
 
 This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferences (all on one line):
 
@@ -87,7 +87,7 @@ Currently we don't plan to extend the Java support to Visual Studio. There are a
 
 ## Does VS Code Java support other display languages?
 
-Currently we support Chinese in addition to English for a few extensions including [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). To learn how to switch the VS Code display language, see [Display Languages](/docs/getstarted/locales.md).
+Currently we support Chinese in addition to English for a few extensions including [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). To learn how to switch the VS Code display language, see [Display Languages](/docs/getstarted/locales.md).
 
 You can contribute to the extension repositories if you're interested in additional display language support.
 

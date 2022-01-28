@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
@@ -105,7 +105,7 @@ The extension development host window that appears will include your extension r
 
 ## Installing a development version of your extension
 
-Anytime VS Code automatically installs an extension on an SSH host, inside a container or WSL, or through GitHub Codespaces, the Marketplace version is used (and not the version already installed on your local machine).
+Any time VS Code automatically installs an extension on an SSH host, inside a container or WSL, or through GitHub Codespaces, the Marketplace version is used (and not the version already installed on your local machine).
 
 While this makes sense in most situations, you may want to use (or share) an unpublished version of your extension for testing without having to set up a debugging environment. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
 
@@ -123,7 +123,7 @@ Follow these steps:
 
 Extensions can take dependencies on other extensions for APIs. For example:
 
-- An extension can export an API from their `activate` function.
+- An extensions can export an API from their `activate` function.
 - This API will become available to all extensions running in the same extension host.
 - Consumer extensions declare in their `package.json` that they depend on the providing extension using the `extensionDependencies` property.
 
@@ -141,9 +141,26 @@ VS Code's APIs are designed to automatically run in the right location regardles
 
 If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the Command Palette (`kbstyle(F1)`) to see where an extension is running.
 
-If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [package.json](/api/get-started/extension-anatomy#extension-manifest) as described in the [Extension Kinds section](/api/advanced-topics/extension-host#preferred-extension-location).
+If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [package.json](/api/get-started/extension-anatomy#extension-manifest):
 
-You can quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you want to force the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) to be a workspace extension (instead of its UI default), you would set:
+As of VS Code 1.40, this value is an array which means extensions can specify more than one kind. For example:
+
+```json
+{
+    "extensionKind": ["ui", "workspace"]
+}
+```
+
+**Note:** Prior releases allowed an extension to specify single location as a string and it is deprecated in favor of multiple location support (array).
+
+Following combination of locations are supported:
+
+- `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or codespace. Most extensions fall into this category.
+- `"extensionKind": ["ui"]` — Indicates the extension **must** run as a UI extension because it requires access to local assets, devices, or capabilities. Therefore, it can only run in VS Code's local extension host and will not work in the Codespaces browser-based editor (as there is no local extension host available).
+- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if it exists locally, otherwise will run in VS Code's workspace extension host if it exists there. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
+- `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if it exists in remote workspace, otherwise will run in VS Code's local extension host if it exists locally. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available).
+
+You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you want to force the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) to be a workspace extension (instead of its UI default), you would set:
 
 ```json
 {
@@ -202,12 +219,6 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-### Sync user global state between machines
-
-If your extension needs to preserve some user state across different machines then provide the state to [Settings Sync](/docs/editor/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`. This can help prevent displaying the same welcome or updates page to users on multiple machines.
-
-There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities#data-storage) topic.
-
 ### Persisting secrets
 
 If your extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or a browser-based equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
@@ -265,9 +276,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### Opening something in a local browser or application
 
-Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace Extensions run remotely, which can cause the application to launch on the wrong side. VS Code Remote Development **partially** shims the `opn` node module to allow existing extensions to function. You can call the module with a URI and VS Code will cause the default application for the URI to appear on the client side. However, this is not a complete implementation, as options are not supported and a `child_process` object is not returned.
+Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace Extensions run remotely, which can cause the application to launch on the wrong side. VS Code Remote Development **partially** shims the `opn` node module to allow existing extensions to function. You can call the module with a URI and VS Code will cause the default application for the URI to appear on the client side. However, this is not a complete implementation, as options are not support and a `child_process` object is not returned.
 
-Instead of relying on a third-party node module, we recommend that extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or codespace and serve up content even if that port is blocked externally.
+Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or codespace and serve up content even if that port is blocked externally.
 
 > **Note:** Currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. However, you can interact with any TCP connection when connecting to a codespace from VS Code.
 
@@ -364,7 +375,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 When running this sample in VS Code, it wires up a `vscode://` or `vscode-insiders://` URI that can be used as a callback for an authentication provider. When running in the Codespaces browser-based editor, it wires up a `https://*.github.dev` URI without any code changes or special conditions.
 
-While OAuth is outside the scope of this document, note that if you adapted this sample to a real authentication provider, you may need to build a proxy service in front of the provider. This is because not all providers allow `vscode://` callback URIs and others do not allow wildcard host names for callbacks over HTTPS. We also recommend using an [OAuth 2.0 Authorization Code with PKCE flow](https://oauth.net/2/pkce/) wherever possible (e.g. Azure AD supports PKCE) to improve the security of the callback.
+While OAuth is outside the scope of this document, note that if you adapted this sample to a real authentication provider, you may need to build a proxy service in front of the provider. This is because not all providers allow `vscode://` callback URIs and others do not allow wildcard host names for callbacks over HTTPS. We also recommend using an [OAuth 2.0 Authorization Code with PKCE flow](https://oauth.net/2/pkce/) wherever possible (e.g Azure AD supports PKCE) to improve the security of the callback.
 
 ### Varying behaviors when running remotely or in the Codespaces browser editor
 
@@ -466,7 +477,7 @@ Here's an illustration of the problem when using the Remote - SSH extension, but
 
 ![Webview problem](images/remote-extensions/webview-problem.png)
 
-If possible, **you should avoid doing this** since it complicates your extension significantly. [Message passing](/api/extension-guides/webview#scripts-and-message-passing) API can enable the same type of user experience without these types of headaches. The extension itself will be running in VS Code Server on the remote side, so it can transparently interact with any web servers your extension starts up as a result of any messages passed to it from the webview.
+If at all possible, **you should avoid doing this** since it complicates your extension significantly. [Message passing](/api/extension-guides/webview#scripts-and-message-passing) API can enable the same type of user experience without these types of headaches. The extension itself will be running in VS Code Server on the remote side, so it can transparently interact with any web servers your extension starts up as a result of any messages passed to it from the webview.
 
 ### Workarounds for using localhost from a webview
 

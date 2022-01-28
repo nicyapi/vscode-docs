@@ -1,10 +1,10 @@
 ---
-Order: 9
+Order: 11
 Area: python
 TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
 PageTitle: Python and Django tutorial in Visual Studio Code
-DateApproved: 10/27/2021
+DateApproved: 03/07/2019
 MetaDescription: Python Django tutorial demonstrating IntelliSense, code navigation, and debugging for both code and templates in Visual Studio Code, the best Python IDE.
 ---
 # Django Tutorial in Visual Studio Code
@@ -37,21 +37,18 @@ In this section, you create a virtual environment in which Django is installed. 
 
 1. On your file system, create a project folder for this tutorial, such as `hello_django`.
 
-1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `.venv` based on your current interpreter:
+1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `env` based on your current interpreter:
 
     ```bash
     # Linux
     sudo apt-get install python3-venv    # If needed
-    python3 -m venv .venv
-    source .venv/bin/activate
+    python3 -m venv env
 
     # macOS
-    python3 -m venv .venv
-    source .venv/bin/activate
+    python3 -m venv env
 
     # Windows
-    py -3 -m venv .venv
-    .venv\scripts\activate
+    python -m venv env
     ```
 
     > **Note**: Use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
@@ -62,15 +59,15 @@ In this section, you create a virtual environment in which Django is installed. 
 
     ![Django tutorial: opening the Command Palette in VS Code](images/shared/command-palette.png)
 
-1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./.venv` or `.\.venv`:
+1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./env` or `.\env`:
 
     ![Django tutorial: Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run [**Terminal: Create New Terminal**](/docs/editor/integrated-terminal.md)  (`kb(workbench.action.terminal.new)`) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run [**Terminal: Create New Integrated Terminal**](/docs/editor/integrated-terminal.md)  (`kb(workbench.action.terminal.new)`) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
-1. The selected environment appears on the left side of the VS Code status bar, and notices the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
+1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
 
     ![Django tutorial: selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
@@ -86,11 +83,11 @@ In this section, you create a virtual environment in which Django is installed. 
     python -m pip install django
     ```
 
-You now have a self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use [**Terminal: Create New Terminal**](/docs/editor/integrated-terminal.md)  (`kb(workbench.action.terminal.new)`). If you open a separate command prompt or terminal, activate the environment by running `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(.venv)** at the beginning.
+You now have a self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use [**Terminal: Create New Integrated Terminal**](/docs/editor/integrated-terminal.md)  (`kb(workbench.action.terminal.new)`). If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/macOS) or `env\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
 
 ## Create and run a minimal Django app
 
-In Django terminology, a "Django project" is composed of several site-level configuration files, along with one or more "apps" that you deploy to a web host to create a full web application. A Django project can contain multiple apps, each of which typically has an independent function in the project, and the same app can be in multiple Django projects. An app, for its part, is just a Python package that follows certain conventions that Django expects.
+In Django terminology, a "Django project" is composed of several site-level configuration files along with one or more "apps" that you deploy to a web host to create a full web application. A Django project can contain multiple apps, each of which typically has an independent function in the project, and the same app can be in multiple Django projects. An app, for its part, is just a Python package that follows certain conventions that Django expects.
 
 To create a minimal Django app, then, it's necessary to first create the Django project to serve as the container for the app, then create the app itself. For both purposes, you use the Django administrative utility, `django-admin`, which is installed when you install the Django package.
 
@@ -186,7 +183,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     ]
     ```
 
-1. Save all modified files.
+1. Save all modified files with `kb(saveAll)`.
 
 1. In the VS Code Terminal, again with the virtual environment activated, run the development server with `python manage.py runserver` and open a browser to  `http://127.0.0.1:8000/` to see a page that renders "Hello, Django".
 
@@ -325,12 +322,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Fri, 07 Sep, 18 at 07:46:32'
     ```
 
+    > **Note**: If you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
 
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
     ![Django tutorial: result of the modified program](images/django-tutorial/debug-run-result.png)
-
-1.  Change the line in the code to use different datetime format, for example `now.strftime("%a, %d %b, %y at %X")`, and then save the file. The Django server will automatically reload, which means the changes will be applied without the need to restart the debugger. Refresh the page on the browser to see the update.
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
@@ -633,7 +629,7 @@ With all the page templates in place, save `views.py`, run the app, and open a b
 
 Many web apps work with information stored in a database, and Django makes it easy to represent the objects in that database using *models*. In Django, a model is a Python class, derived from `django.db.models.Model`, that represents a specific database object, typically a table. You place these classes in an app's `models.py` file.
 
-With Django, you work with your database almost exclusively through the models you define in code. Django's "migrations" then handle all the details of the underlying database automatically as you evolve the models over time. The general workflow is as follows:
+With Django, your work with your database almost exclusively through the models you define in code. Django's "migrations" then handle all the details of the underlying database automatically as you evolve the models over time. The general workflow is as follows:
 
 1. Make changes to the models in your `models.py` file.
 1. Run `python manage.py makemigrations` to generate scripts in the `migrations` folder that migrate the database from its current state to the new state.
@@ -670,14 +666,14 @@ class LogMessage(models.Model):
     def __str__(self):
         """Returns a string representation of a message."""
         date = timezone.localtime(self.log_date)
-        return f"'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
+        return "'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
 ```
 
 A model class can include methods that return values computed from other class properties. Models typically include a `__str__` method that returns a string representation of the instance.
 
 ### Migrate the database
 
-Because you changed your data models by editing `models.py`, you need to update the database itself. In VS Code, open a Terminal with your virtual environment activated (use the **Terminal: Create New Terminal** command, `kb(workbench.action.terminal.new)`)), navigate to the project folder, and run the following commands:
+Because you changed your data models by editing `models.py`, you need to update the database itself. In VS Code, open a Terminal with your virtual environment activated (use the **Terminal: Create New Integrated Terminal** command, `kb(workbench.action.terminal.new)`)), navigate to the project folder, and run the following commands:
 
 ```bash
 python manage.py makemigrations
@@ -900,7 +896,7 @@ Accordingly, developers typically omit the virtual environment folder from sourc
 
 Although you can create the file by hand, you can also use the `pip freeze` command to generate the file based on the exact libraries installed in the activated environment:
 
-1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: Create New Terminal** command (`kb(workbench.action.terminal.new)`)) to open a terminal with that environment activated.
+1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: Create New Integrated Terminal** command (`kb(workbench.action.terminal.new)`)) to open a terminal with that environment activated.
 
 1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
 

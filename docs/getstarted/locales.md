@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
 # Display Language
@@ -16,8 +16,6 @@ Visual Studio Code ships by default with English as the display language and oth
 ![Language Pack recommendation](images/locales/lang-pack-recommendation.png)
 
 After installing the Language Pack extension and following the prompt to restart, VS Code will use the Language Pack matching your operating system's UI language.
-
->**Note**: This topic explains how to change the display language in the VS Code UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refer to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
 
 ## Changing the Display Language
 
@@ -42,8 +40,8 @@ The `locale` can also be changed by editing the `argv.json` file directly (**Pre
 Display Language | Locale
 -----------------|-------
 English (US) | `en`
-Simplified Chinese | `zh-cn`
-Traditional Chinese | `zh-tw`
+Simplified Chinese | `zh-CN`
+Traditional Chinese | `zh-TW`
 French | `fr`
 German | `de`
 Italian | `it`
@@ -55,8 +53,6 @@ Bulgarian | `bg`
 Hungarian | `hu`
 Portuguese (Brazil) | `pt-br`
 Turkish | `tr`
-Polish | `pl`
-Czech | `cs`
 
 ## Marketplace Language Packs
 
@@ -89,7 +85,3 @@ This notification may mean that your `argv.json` file wasn't saved after a previ
 ### Can I contribute to a language pack's translations?
 
 Yes, the [Visual Studio Code Community Localization Project](https://aka.ms/vscodeloc) is open to anyone, where contributors can provide new translations, vote on existing translations, or suggest process improvements.
-
-### How can I enable a programming language like Python?
-
-Refer to the [Programming Languages](/docs/languages/overview.md) section to learn how to install support for programming languages, such as PHP, Python, and Java.

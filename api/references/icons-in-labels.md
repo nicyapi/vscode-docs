@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Reference of all product icons by id
@@ -27,12 +27,6 @@ You can also embed text and use multiple icons:
 
 ```ts
 $(eye) $(heart) $(mark-github) GitHub
-```
-
-To place a literal `${...}` text inside a label, escape the `$` with a backslash:
-
-```ts
-\$(eye)
 ```
 
 ## Animation

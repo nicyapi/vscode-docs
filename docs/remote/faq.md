@@ -1,11 +1,11 @@
 ---
-Order: 15
+Order: 14
 Area: remote
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 ---
 # Remote Development FAQ
 
@@ -115,12 +115,6 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 * [Remote - Containers](https://aka.ms/vscode-remote/download/containers)
 * [Remote - WSL](https://aka.ms/vscode-remote/download/wsl)
 
-## How can I review and configure extension settings?
-
-As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Remote - Containers as an example, you may review a list of all Remote - Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
-
-![List of settings in Feature Contributions](images/containers/feature-contributions.png)
-
 ## Remote - WSL
 
 ### What is the advantage of the extension over using WSL as the terminal?
@@ -159,7 +153,7 @@ When VS Code connects to a remote environment, extensions are classified as eith
 
 When a user installs an extension, VS Code attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other UI customizations are automatically installed on the UI side. All others are treated as Workspace extensions since they are the most full-featured. However, extension authors can also override this location with an `extensionKind` property in `package.json`.
 
-If your extension is not functioning as expected, [there are steps to check](/api/advanced-topics/remote-extensions#incorrect-execution-location) if it is running in the correct location or should perhaps have a different `extensionKind`. Also see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details on what extension authors need to know about Remote Development and Codespaces.
+See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details.
 
 ## License and privacy
 

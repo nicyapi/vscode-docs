@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -41,16 +41,6 @@ You can search for themes in the Extensions view (`kb(workbench.view.extensions)
 
 ![Searching for themes in the Extensions view](images/themes/category-themes.png)
 
-## Auto switch based on OS color scheme
-
-Windows and macOS support light and dark color schemes. There is a setting, `window.autoDetectColorScheme`, that instructs VS Code to listen to changes to the OS's color scheme and switch to a matching theme accordingly.
-
-To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes with the settings:
-
-* `workbench.preferredLightColorTheme` - defaults to "Default Light+"
-* `workbench.preferredDarkColorTheme` - defaults to "Default Dark+"
-* `workbench.preferredHighContrastColorTheme` - defaults to "Default High Contrast"
-
 ## Customizing a Color Theme
 
 ### Workbench colors
@@ -73,19 +63,6 @@ To customize a specific theme only, use the following syntax:
 }
 ```
 
-If a customization applies to more than one themes, you can name multiple themes or use `*` as wildcard at the beginning and the end of the name:
-```json
-"workbench.colorCustomizations": {
-    "[Abyss][Red]": {
-        "activityBar.background": "#ff0000"
-    },
-    "[Monokai*]": {
-        "activityBar.background": "#ff0000"
-    }
-}
-```
-
-
 ### Editor syntax highlighting
 
 To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomizations` in your user [settings](/docs/getstarted/settings.md) `settings.json` file:
@@ -98,20 +75,14 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 
 >**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go to the [Color Theme guide](/api/extension-guides/color-theme.md) for more information.
 
-Again, to customize specific themes, you can do this in one of the following ways:
+Again, to customize a specific theme only, use the following syntax:
 
 ```json
 "editor.tokenColorCustomizations": {
     "[Monokai]": {
         "comments": "#229977"
-    },
-    "[*Dark*]": {
-        "variables": "#229977"
-    },
-    "[Abyss][Red]": {
-        "keywords": "#f00"
     }
-}
+},
 ```
 
 ### Editor semantic highlighting
@@ -144,7 +115,7 @@ Users can override the theme setting by:
     "[Rouge]": {
         "enabled": true
     }
-}
+},
 ```
 
 When semantic highlighting is enabled and available for a language, it is up to the theme to configure whether and how semantic tokens are colored. Some semantic tokens are standardized and map to well-established TextMate scopes. If the theme has a coloring rule for these TextMate scopes, the semantic token will be rendered with that color, without the need for any additional coloring rules.
@@ -159,7 +130,7 @@ Additional styling rules can be configured by the user in `editor.semanticTokenC
             "*.declaration": { "bold": true }
         }
     }
-}
+},
 ```
 
 To see what semantic tokens are computed and how they are styled, users can use the scope inspector (**Developer: Inspect Editor Tokens and Scopes**), which displays information for the text at the current cursor position.

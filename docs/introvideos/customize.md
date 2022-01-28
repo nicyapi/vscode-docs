@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Customize
 ContentId: 3e36b1fa-cefc-4a07-9773-e672da5881a2
 PageTitle: Customize Visual Studio Code with settings and keyboard shortcuts
-DateApproved: 10/11/2021
+DateApproved: 4/8/2021
 MetaDescription: Learn how to customize your Visual Studio Code with settings and keyboard shortcuts.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
@@ -13,8 +13,6 @@ MetaSocialImage: images/opengraph/introvideos.png
 In this Visual Studio Code tutorial, we show you how to customize Visual Studio Code with settings and keyboard shortcuts.
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RWBdEz" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
-
-Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
 ## Video outline
 
@@ -26,10 +24,6 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 * Customize your settings using the settings editor
 * Use a JSON file to customize settings
 * Configure language specific settings
-
-## Next video
-
-* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

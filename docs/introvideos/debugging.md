@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Debugging
 ContentId: cf275b3d-c1d8-4a55-b2eb-a8a744882b6a
 PageTitle: Introduction to Debugging in Visual Studio Code
-DateApproved: 10/8/2021
+DateApproved: 4/5/2021
 MetaDescription: Debugging is a core feature of Visual Studio Code. Learn how to configure and use the Node.js debugger in this introductory video.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
@@ -16,9 +16,7 @@ Debugging is a core feature of Visual Studio Code. In this tutorial, we will sho
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RWAIIi" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Here's the next video we recommend: [Version Control](/docs/introvideos/versioncontrol.md)
-
-Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
+Next video: [Version Control](/docs/introvideos/versioncontrol.md)
 
 ## Video outline
 
@@ -31,7 +29,6 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 ## Next video
 
 * [Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.
-* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -22,9 +22,8 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onUri`](/api/references/activation-events#onUri)
 - [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
 - [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
-- [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
-- [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
 - [`*`](/api/references/activation-events#Start-up)
+- [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
@@ -77,15 +76,14 @@ This activation event is emitted and interested extensions will be activated bef
 ...
 ```
 
-These are two more fine-grained `onDebug` activation events:
-
 ### onDebugInitialConfigurations
-
-`onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
 
 ### onDebugResolve
 
-`onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
+These are two more fine-grained `onDebug` activation events:
+
+- `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
+- `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
 
 **Rule of thumb:** If activation of a debug extension is lightweight, use `onDebug`. If it is heavyweight, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`. See [Using a DebugConfigurationProvider](/api/extension-guides/debugger-extension#using-a-debugconfigurationprovider) for more details on these methods.
 
@@ -173,42 +171,26 @@ For example, the declaration of onCustomEditor below:
 
 will cause the extension to be activated when VS Code needs to restore a custom editor with the viewType: `catCustoms.pawDraw`. The viewType is set in the [`customEditors` contribution point](/api/extension-guides/custom-editors#contribution-point) and bound to a provider with `registerCustomEditorProvider`.
 
-## onAuthenticationRequest
-
-This activation event is emitted and interested extensions will be activated whenever an extension requests an authentication session (via the `authentication.getSession()` API) with the matching `providerId`.
-
-For example, the declaration of onCustomEditor below:
-
-```json
-"activationEvents": [
-    "onAuthenticationRequest:github"
-]
-```
-
-will cause the extension to be activated when VS Code needs retrieve an `AuthenticationSession` of type `github`.
-
-## onStartupFinished
-
-This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup. Currently, this event is emitted after all the `*` activated extensions have finished activating.
-
-```json
-...
-"activationEvents": [
-    "onStartupFinished"
-]
-...
-```
-
 ## Start up
 
-The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up.
-
-> **Note:** To ensure a great user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
+The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
 ```json
 ...
 "activationEvents": [
     "*"
+]
+...
+```
+
+## onStartupFinished
+
+This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup.
+
+```json
+...
+"activationEvents": [
+    "onStartupFinished"
 ]
 ...
 ```

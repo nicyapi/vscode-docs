@@ -15,7 +15,7 @@
     "gulp": "^4.0.2",
     "husky": "^4.0.0",
     "lint-staged": "^10.0.0",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.7.8"
   },
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
@@ -23,7 +23,6 @@
     ]
   },
   "resolutions": {
-    "glob-parent": ">=5.1.2",
     "hosted-git-info": "^3.0.8"
   }
 }

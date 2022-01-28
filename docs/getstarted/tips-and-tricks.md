@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -19,15 +19,13 @@ Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code 
 
 ### Getting started
 
-The best way of exploring VS Code hands-on is to open the **Get Started** page. You will get an overview of VS Code's customizations and features. **Help** > **Get Started**.
+Open the **Welcome** page to get started with the basics of VS Code. **Help** > **Welcome**.
 
-![Get Started page](images/tips-and-tricks/getstarted_page.png)
+![welcome page](images/tips-and-tricks/welcome_page.png)
 
-Pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
+In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's features. **Help** > **Interactive Playground**.
 
-If you are looking to improve your code editing skills open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and many more. **Help** > **Editor Playground**.
-
-![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
+![interactive playground](images/tips-and-tricks/interactive_playground.png)
 
 ### Command Palette
 
@@ -288,7 +286,7 @@ And many, many [other customizations](/docs/getstarted/settings.md).
 
 ### Language specific settings
 
-You can scope the settings that you only want for specific languages by the language identifier. You can find a list of commonly used language IDs in the [Language Identifiers](/docs/languages/identifiers.md) reference.
+You can scope the settings that you only want for specific languages by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
 
 ```json
 "[languageid]": {
@@ -490,7 +488,7 @@ Here is a selection of common features for editing code. If the keyboard shortcu
 
 ### Multi cursor selection
 
-To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+Click)` on macOS).
+To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+click)` on macOS).
 
 To set cursors above or below the current position use:
 

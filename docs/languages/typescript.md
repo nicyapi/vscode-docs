@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -113,7 +113,7 @@ If you choose one of the suggestions from another file or module, VS Code will a
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/typescript/auto-import-post.png)
 
-You can disable auto imports by setting `"typescript.suggest.autoImports": false`.
+You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
 
 ## Formatting
 
@@ -217,7 +217,7 @@ Unused TypeScript code, such as the `else` block of an `if` statement that is al
 
 You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
-To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in TypeScript by setting:
+To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in TypeScriptScript by setting:
 
 ```json
 "[typescript]": {
@@ -278,46 +278,6 @@ VS Code automatically suggests some common code simplifications such as converti
 </video>
 
 Set `"typescript.suggestionActions.enabled"` to `false` to disable suggestions.
-
-## Inlay hints
-
-Inlay hints add additional inline information to source code to help you understand what the code does.
-
-**Parameter name inlay hints** show the names of parameters in function calls:
-
-![Parameter name inlay hints](images/typescript/inlay-parameters.png)
-
-This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
-
-To enable parameter name hints, set `typescript.inlayHints.parameterNames`. There are three possible values:
-
-* `none` — Disable parameter inlay hints.
-* `literals` — Only show inlay hints for literals (string, number, Boolean).
-* `all` — Show inlay hints for all arguments.
-
-**Variable type inlay hints** show the types of variables that don't have explicit type annotations.
-
-Setting: `typescript.inlayHints.variableTypes.enabled`
-
-![Variable type inlay hints](images/typescript/inlay-var-types.png)
-
-**Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
-
-Setting: `typescript.inlayHints.propertyDeclarationTypes.enabled`
-
-![Property type inlay hints](images/typescript/inlay-property-types.png)
-
-**Parameter type hints**  show the types of implicitly typed parameters.
-
-Setting: `typescript.inlayHints.parameterTypes.enabled`
-
-![Parameter type inlay hints](images/typescript/inlay-parameter-types.png)
-
-**Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
-
-Setting: `typescript.inlayHints.functionLikeReturnTypes.enabled`
-
-![Return type inlay hints](images/typescript/inlay-return-type.png)
 
 ## References CodeLens
 

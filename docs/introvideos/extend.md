@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Extend
 ContentId: c720387b-e6db-4b40-865f-0c0a814b0b12
 PageTitle: Extensions in Visual Studio Code
-DateApproved: 10/5/2021
+DateApproved: 10/13/2020
 MetaDescription: Use extensions in Visual Studio Code to add new features, themes, and more.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
@@ -14,9 +14,7 @@ Use Visual Studio Code extensions to add new features, themes and more. In this 
 
 <iframe src="https://www.youtube.com/embed/SKcZ3cwX8lA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-Here's the next video we recommend: [Debugging](/docs/introvideos/debugging.md)
-
-Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
+Next video: [Debugging](/docs/introvideos/debugging.md)
 
 ## Video outline
 
@@ -28,7 +26,6 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 ## Next video
 
 * [Debugging](/docs/introvideos/debugging.md) - Learn how to debug your application, including setting breakpoints and inspecting variables.
-* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

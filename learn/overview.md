@@ -1,7 +1,7 @@
 ---
 ContentId: f71d4b81-8361-48ee-82c0-48f69ec0d72e
 PageTitle: Get Started with Visual Studio Code
-DateApproved: 12/8/2021
+DateApproved: 10/22/2020
 MetaDescription: Get Started with Visual Studio Code
 ---
 # Learn to code with Visual Studio Code
@@ -35,4 +35,4 @@ Use the built-in source control to save your work over time so you don't lose pr
 
 ### Code inside Notebooks
 
-If you want to try a project in data science or data visualization, you can use Jupyter notebooks inside VS Code. Run your code step-by-step, and visualize and interact with your data, variables, graphs, and plots. Check out this [tutorial on how to work with Jupyter Notebooks inside VS Code](/docs/datascience/jupyter-notebooks.md).
+If you want to try a project in data science or data visualization, you can use Jupyter notebooks inside VS Code. Run your code step-by-step, and visualize and interact with your data, variables, graphs, and plots. Check out this [tutorial on how to work with Jupyter Notebooks inside VS Code](/docs/python/jupyter-support.md).

@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: JavaScript Debugging Recipes for Visual Studio Code
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -23,7 +23,6 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 **Recipes:**
 
 * [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/main/nodemon)
-* [Debugging Node.js AWS Lambda functions](https://github.com/microsoft/vscode-recipes/tree/main/debugging-lambda-functions)
 
 ## Debug client-side JavaScript in Browsers
 

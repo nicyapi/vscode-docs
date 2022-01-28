@@ -1,10 +1,10 @@
 ---
-Order: 12
+Order: 14
 Area: python
 TOCTitle: Python on Azure
 ContentId: 12bf713e-5f20-46ac-81bb-8e05565aba3a
 PageTitle: Deploy Python to Azure
-DateApproved: 10/20/2021
+DateApproved: 09/16/2019
 MetaDescription: How to deploy Python applications to Azure with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---

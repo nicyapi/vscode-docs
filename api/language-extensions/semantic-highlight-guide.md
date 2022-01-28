@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8308017a-75de-430a-b420-d9d2064162b9
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -101,8 +101,7 @@ Standard token types:
 | `parameter` | For identifiers that declare or reference a function or method parameters. |
 | `variable` | For identifiers that declare or reference a local or global variable. |
 | `property` | For identifiers that declare or reference a member property, member field, or member variable. |
-| `enumMember` | For identifiers that declare or reference an enumeration property, constant, or member. |
-| `decorator` | For identifiers that declare or reference decorators and annotations. |
+| `enumMember` | For identifiers that declare an enumeration property, constant, or member. |
 | `event`| For identifiers that declare an event property. |
 | `function`| For identifiers that declare a function. |
 | `method`| For identifiers that declare a member function or method. |

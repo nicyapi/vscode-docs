@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code when clause context reference.
 
 Visual Studio Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. These contexts can be used to selectively enable or disable extension commands and UI elements, such as menus and views.
 
-For example, VS Code uses when clauses to enable or disable command keybindings, which you can see in the Default Keybindings JSON (**Preferences: Open Default Keyboard Shortcuts (JSON)**):
+For example, VS Codes uses when clauses to enable or disable command keybindings, which you can see in the Default Keybindings JSON (**Preferences: Open Default Keyboard Shortcuts (JSON)**):
 
 ```json
 { "key": "f5",  "command": "workbench.action.debug.start",
@@ -29,7 +29,7 @@ Inequality | `!=` | `"resourceExtname != .js"`
 Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
 Not | `!` | `!editorReadonly`
-Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
+Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
 In | `in` | `resourceFilename in supportedFolders` ([details](#in-conditional-operator) below)
@@ -185,7 +185,7 @@ Panel Identifiers:
 * workbench.panel.comments - Comments
 * workbench.view.search - Search when `search.location` is set to `panel`
 
-If you want a when clause that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activePanel`.
+If you want a when clause that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activiewFocus`.
 
 For example, the when clause below is true only when the File Explorer has focus:
 
@@ -201,7 +201,7 @@ In a when clause, you can reference a configuration (setting) value by prefixing
 
 If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views by using a `when` clause context and none of the existing keys suit your needs, you can add your own context with the `setContext` command.
 
-The first example below sets the key `myExtension.showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
+The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
 
 ```js
 vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
@@ -232,13 +232,13 @@ Then, in the `package.json` you could add a menu contribution for the `explorer/
   "explorer/context": [
     {
       "command": "ext.doSpecial",
-      "when": "explorerResourceIsFolder && resourceFilename in ext.supportedFolders"
+      "when": "explorerResourceIsFolder && resourceFilename in ext:supportedFolders"
     }
   ]
 }
 ```
 
-In that example, we are taking the value of `resourceFilename` (which is the name of the folder in this case) and checking for its existence in the value of `ext.supportedFolders`. If it exists, the menu will be shown. This powerful operator should allow for richer conditional and dynamic contributions that support `when` clauses, for example menus, views, etc.
+In that example, we are taking the value of `resourceFilename` (which is the name of the folder in this case) and checking for its existence in the value of `ext:supportedFolders`. If it exists, the menu will be shown. This powerful operator should allow for richer conditional and dynamic contributions that support `when` clauses, for example menus, views, etc.
 
 ## Inspect Context Keys utility
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -269,7 +269,7 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
-Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
+Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
 
 You can find the full list of when clause conditional operators in the [when clause contexts](/api/references/when-clause-contexts.md#conditional-operators) reference.
 

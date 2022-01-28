@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -17,9 +17,9 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | ------------------------------------------------------- | :------: | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`                                                  |    Y     | `string`                                   | The name of the extension - should be all lowercase with no spaces.                                                                                                                                                                                                                                                    |
 | `version`                                               |    Y     | `string`                                   | [SemVer](https://semver.org/) compatible version.                                                                                                                                                                                                                                                                      |
-| `publisher`                                             |    Y     | `string`                                   | The [publisher name](/api/working-with-extensions/publishing-extension#publishing-extensions)                                                                                                                                                                                                          |
+| `publisher`                                             |    Y     | `string`                                   | The [publisher name](/api/working-with-extensions/publishing-extension#publishers-and-personal-access-tokens)                                                                                                                                                                                                          |
 | `engines`                                               |    Y     | `object`                                   | An object containing at least the `vscode` key matching the versions of VS Code that the extension is [compatible](/api/working-with-extensions/publishing-extension#visual-studio-code-compatibility) with. Cannot be `*`. For example: `^0.10.5` indicates compatibility with a minimum VS Code version of `0.10.5`. |
-| `license`                                               |          | `string`                                   | Refer to [npm's documentation](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.                                                                                                     |
+| `license`                                               |          | `string`                                   | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.                                                                                                     |
 | `displayName`                                           |          | `string`                                   | The display name for the extension used in the Marketplace.                                                                                                                                                                                                                                                            |
 | `description`                                           |          | `string`                                   | A short description of what your extension is and does.                                                                                                                                                                                                                                                                |
 | `categories`                                            |          | `string[]`                                 | The categories you want to use for the extensions. Allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks, Education]`                                                                                                          |
@@ -27,21 +27,20 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `galleryBanner`                                         |          | `object`                                   | Helps format the Marketplace header to match your icon. See details below.                                                                                                                                                                                                                                             |
 | `preview`                                               |          | `boolean`                                  | Sets the extension to be flagged as a Preview in the Marketplace.                                                                                                                                                                                                                                                      |
 | `main`                                                  |          | `string`                                   | The entry point to your extension.                                                                                                                                                                                                                                                                                     |
-| `browser`                                               |          | `string`                                   | The entry point to your [Web extension](/api/extension-guides/web-extensions).                                                                                                                                                                                                                                                                                     |
 | [`contributes`](/api/references/contribution-points)    |          | `object`                                   | An object describing the extension's [contributions](/api/references/contribution-points).                                                                                                                                                                                                                             |
 | [`activationEvents`](/api/references/activation-events) |          | `array`                                    | An array of the [activation events](/api/references/activation-events) for this extension.                                                                                                                                                                                                                             |
 | `badges`                                                |          | `array`                                    | Array of [approved](/api/references/extension-manifest#approved-badges) badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.       |
 | `markdown`                                              |          | `string`                                   | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.                                                                                                                                                                                                               |
 | `qna`                                                   |          | `marketplace` (default), `string`, `false` | Controls the **Q & A** link in the Marketplace. Set to `marketplace` to enable the default Marketplace Q & A site. Set to a string to provide the URL of a custom Q & A site. Set to `false` to disable Q & A altogether.                                                                                              |
-| `dependencies`                                          |          | `object`                                   | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies).                                                                                                                                                            |
-| `devDependencies`                                       |          | `object`                                   | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#devdependencies).                                                                                                                                                   |
+| `dependencies`                                          |          | `object`                                   | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).                                                                                                                                                            |
+| `devDependencies`                                       |          | `object`                                   | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).                                                                                                                                                   |
 | `extensionPack`                                         |          | `array`                                    | An array with the ids of extensions bundled with this extension. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.                                                                              |
 | `extensionDependencies`                                 |          | `array`                                    | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.                                                                           |
-| `extensionKind` | | `array` | An array that indicates where the extension should run in remote configurations. Values are `ui` (run locally), `workspace` (run on remote machine) or both, with the order setting the preference. For example: `[ui, workspace]` indicates the extension can run in either location but prefers to run on the local machine. See [here](/api/advanced-topics/extension-host#preferred-extension-location) for more details.                                                                   |
+| `extensionKind`                                 |          | `array`                                    | An array that indicates where the extension should run in remote configurations. Values are `ui` (run locally), `workspace` (run on remote machine) or both, with the order setting the preference. For example: `[ui, workspace]` indicates the extension can run in either location but prefers to run on the local machine.                                                                           |
 | `scripts`                                               |          | `object`                                   | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/api/working-with-extensions/publishing-extension#prepublish-step) or [vscode:uninstall](/api/references/extension-manifest#extension-uninstall-hook).                   |
 | `icon`                                                  |          | `string`                                   | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).                                                                                                                                                                                                                                          |
 
-Also check [npm's `package.json` reference](https://docs.npmjs.com/cli/v7/configuring-npm/package-json).
+Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package.json).
 
 ## Example
 
@@ -55,7 +54,7 @@ Here is a complete `package.json`
   "publisher": "ms-vscode",
   "description": "Markdown Word Count Example - reports out the number of words in a Markdown file.",
   "author": {
-    "name": "sean"
+    "name": "seanmcbreen"
   },
   "categories": ["Other"],
   "icon": "images/icon.png",
@@ -79,7 +78,7 @@ Here is a complete `package.json`
   "license": "SEE LICENSE IN LICENSE.txt",
   "bugs": {
     "url": "https://github.com/microsoft/vscode-wordcount/issues",
-    "email": "sean@contoso.com"
+    "email": "smcbreen@microsoft.com"
   },
   "repository": {
     "type": "git",
@@ -129,7 +128,7 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
   "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md",
   "bugs": {
     "url": "https://github.com/microsoft/vscode-wordcount/issues",
-    "email": "sean@contoso.com"
+    "email": "smcbreen@microsoft.com"
   },
   "repository": {
     "type": "git",
@@ -213,7 +212,7 @@ The `yo code` generator lets you easily package TextMate themes, colorizers and 
 
 To combine extension contributions, edit an existing extension manifest `package.json` and add the new contributions and associated files.
 
-Below is an extension manifest which includes a LaTex language definition (language identifier and file extensions), colorization (`grammars`), and snippets.
+Below is an extension manifest which includes a LaTex language definition (language identifier and file extensions), colorization (`grammar`), and snippets.
 
 ```json
 {
@@ -252,7 +251,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
 
 Notice that the extension manifest `categories` attribute now includes both `Programming Languages` and `Snippets` for easy discovery and filtering on the Marketplace.
 
-> **Tip:** Make sure your merged contributions are using the same identifiers. In the example above, all three contributions are using "latex" as the language identifier. This lets VS Code know that the colorizer (`grammars`) and snippets are for the LaTeX language and will be active when editing LaTeX files.
+> **Tip:** Make sure your merged contributions are using the same identifiers. In the example above, all three contributions are using "latex" as the language identifier. This lets VS Code know that the colorizer (`grammar`) and snippets are for the LaTeX language and will be active when editing LaTeX files.
 
 ## Extension Packs
 

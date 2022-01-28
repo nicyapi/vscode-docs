@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -119,7 +119,7 @@ To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
 ## Formatting
 
-VS Code's built-in JavaScript formatter provides basic code formatting with reasonable defaults.
+VS Code's built-in JavaScript formatter providers basic code formatting with reasonable defaults.
 
 The `javascript.format.*` [settings](/docs/getstarted/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
@@ -246,47 +246,6 @@ VS Code automatically suggests some common code simplifications such as converti
 </video>
 
 Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
-
-## Inlay hints
-
-Inlay hints add additional inline information to source code to help you understand what the code does.
-
-**Parameter name inlay hints** show the names of parameters in function calls:
-
-![Parameter name inlay hints](images/javascript/inlay-parameters.png)
-
-This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
-
-To enable parameter name hints, set `javascript.inlayHints.parameterNames`. There are three possible values:
-
-* `none` — Disable parameter inlay hints.
-* `literals` — Only show inlay hints for literals (string, number, Boolean).
-* `all` — Show inlay hints for all arguments.
-
-**Variable type inlay hints** show the types of variables that don't have explicit type annotations.
-
-Setting: `javascript.inlayHints.variableTypes.enabled`
-
-![Variable type inlay hints](images/javascript/inlay-var-types.png)
-
-**Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
-
-Setting: `javascript.inlayHints.propertyDeclarationTypes.enabled`
-
-![Property type inlay hints](images/javascript/inlay-property-types.png)
-
-**Parameter type hints**  show the types of implicitly typed parameters.
-
-Setting: `javascript.inlayHints.parameterTypes.enabled`
-
-![Parameter type inlay hints](images/javascript/inlay-parameter-types.png)
-
-**Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
-
-Setting: `javascript.inlayHints.functionLikeReturnTypes.enabled`
-
-![Return type inlay hints](images/javascript/inlay-return-type.png)
-
 
 ## References CodeLens
 

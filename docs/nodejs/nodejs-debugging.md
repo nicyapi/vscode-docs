@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -14,9 +14,9 @@ The Visual Studio Code editor has built-in debugging support for the [Node.js](h
 
 There are a few ways you can debug your Node.js programs in VS Code:
 
-* Use [auto attach](#auto-attach) to debug processes you run in VS Code's integrated terminal.
-* Use the [JavaScript debug terminal](#javascript-debug-terminal), similar to using the integrated terminal.
-* Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of VS Code.
+* Use [auto attach](#auto-attach) to debug processes you run in VS Code's integrated terminal,
+* Use the [JavaScript debug terminal](#javascript-debug-terminal), in a similar way, or
+* Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of VS Code
 
 ## Auto Attach
 
@@ -72,7 +72,7 @@ In `smart` Auto Attach mode, VS Code will try to attach to your code, and not at
 
 ## JavaScript Debug Terminal
 
-In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the **Debug: Create JavaScript Debug Terminal** command from the Command Palette (`kbs(workbench.action.showCommands)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
+In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the use the **Debug: Create JavaScript Debug Terminal** command from the Command Palette (`kbs(workbench.action.showCommands)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
 
 ![Create Debug Terminal](images/nodejs-debugging/create-debug-terminal.png)
 
@@ -590,7 +590,7 @@ For example, using:
   ]
 ```
 
-all code in the `node_modules` and `lib` folders in your project will be skipped. The `skipFiles` also apply to the location shown when calling `console.log` and similar methods: the first non-skipped location in the stack will be shown beside the output in the Debug Console.
+all code in the `node_modules` and `lib` folders in your project will be skipped.
 
 Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules:
 

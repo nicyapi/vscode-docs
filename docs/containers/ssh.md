@@ -2,7 +2,7 @@
 Area: containers
 ContentId: DDE07043-BA8C-4D75-B392-ABACC31F6EA8
 PageTitle: Connect to Docker engine running on a remote machine
-DateApproved: 08/16/2021
+DateApproved: 01/29/2020
 MetaDescription: Connect via SSH to Docker engine running on a remote machine and use the remote machine as a development environment for Visual Studio Code.
 ---
 # Connect to remote Docker over SSH
@@ -15,7 +15,7 @@ We recommend using the Visual Studio Code [Remote-SSH extension](/docs/container
 
 1. Configure `ssh-agent` on the **local** system with the **private** key file produced above.
 
-    * **Windows (OpenSSH):** The latest version(s) of Windows 10 include OpenSSH by default. There is a Windows service, `ssh-agent` that is disabled by default, and needs to be re-enabled and set to automatic start. From an admin PowerShell prompt, run `Set-Service ssh-agent -StartupType "Automatic"` and `Start-Service ssh-agent`. Then, do `ssh-add <keyfile>`.
+    * **Windows (OpenSSH):** The latest version(s) of Windows 10 include OpenSSH by default. There is a Windows service, `ssh-agent` that is disabled by default, and needs to be re-enabled and set to automatic start. From an admin command prompt, run `sc config ssh-agent start=auto` and `net start ssh-agent`. Then, do `ssh-add <keyfile>`.
 
     * **Windows (Pageant):** You can use Pageant instead of OpenSSH, in which case it is necessary to set the environment variable `SSH_AUTH_SOCK=pageant`. Making that a user or system environment variable will be easiest.
 
@@ -50,8 +50,8 @@ We recommend using the Visual Studio Code [Remote-SSH extension](/docs/container
     ssh-add id_ecdsa
     ```
 
-- Windows 10 build 1909 and older are affected by [an issue that prevents SSH from getting to your identities after Windows OS update](https://github.com/PowerShell/Win32-OpenSSH/issues/1234). The workaround is to add a dummy service entry to system configuration. Run the following from administrative PowerShell window:
+- Windows 10 build 1909 and older are affected by [an issue that prevents SSH from getting to your identities after Windows OS update](https://github.com/PowerShell/Win32-OpenSSH/issues/1234). The workaround is to add a dummy service entry to system configuration. Run the following from administrative command prompt window:
 
-    ```powershell
-    New-Service sshd -BinaryPathName "C:\Windows\System32\OpenSSH\ssh.exe"
+    ```shell
+    sc create sshd binPath=C:\Windows\System32\OpenSSH\ssh.exe
     ```

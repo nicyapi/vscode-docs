@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order: 13
 Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
@@ -61,7 +61,7 @@ You can also navigate back and forth between a Go file and its test implementati
 
 The Go language server (`gopls`) detects build and vet errors found on the workspace. The errors and warnings from running any/all of the above will be shown red/green squiggly lines in the editor. These diagnostics also show up in the **Problems** panel  (**View** > **Problems**).
 
-You can add additional lint checks using the `go.lintOnSave` setting and configuring your choice of linting tool (`staticcheck`, `golangci-lint`, or `revive`) using the `go.lintTool` setting.
+You can add additional lint checks using the `go.lintOnSave` setting and configuring your choice of linting tool (`staticcheck`, `golangci-lint`, or `revive`) using the `go.listTool` setting.
 
 You can configure the extension to run tests and compute test coverage using:
 

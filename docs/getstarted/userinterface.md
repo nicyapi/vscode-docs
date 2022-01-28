@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -60,7 +60,7 @@ A Minimap (code outline) gives you a high-level overview of your source code, wh
 
 ### Indent Guides
 
-The image above also shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.guides.indentation": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+The image above also shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.renderIndentGuides": false` in your user or workspace [settings](/docs/getstarted/settings.md).
 
 ## Breadcrumbs
 

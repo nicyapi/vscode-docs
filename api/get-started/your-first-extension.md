@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 12/8/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -30,8 +30,7 @@ yo code
 # ? Bundle the source code with webpack? No
 # ? Which package manager to use? npm
 
-# ? Do you want to open the new folder with Visual Studio Code? Open with `code`
-
+code ./helloworld
 ```
 
 Then, inside the editor, press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
